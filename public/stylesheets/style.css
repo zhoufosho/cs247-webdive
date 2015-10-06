@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato',sans-serif;
 }
 
 a {
@@ -19,3 +19,15 @@ a {
 	padding: 4px 20px;
 }
 
+
+/* print all linenums in prettify */
+.prettyprint > .linenums li.L0,
+.prettyprint > .linenums li.L1,
+.prettyprint > .linenums li.L2,
+.prettyprint > .linenums li.L3,
+.prettyprint > .linenums li.L5,
+.prettyprint > .linenums li.L6,
+.prettyprint > .linenums li.L7,
+.prettyprint > .linenums li.L8 {
+	list-style-type: decimal !important
+}
