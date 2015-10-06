@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.sidenav {
+	position: fixed;
+}
+
+.sidebar {
+	list-style: none;	
+}
+
+.sidebar li{
+	padding: 4px 20px;
+}
+
