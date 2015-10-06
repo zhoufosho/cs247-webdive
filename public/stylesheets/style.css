@@ -1,14 +1,20 @@
+/*
+ * @zhoufosho
+ * ===================
+ * COLORS:
+ * dark-grey: #696969;
+ * light-grey: #eeeeee;
+ * blue: #00B7FF;
+ */
+
 body {
   padding: 50px;
   font-family: 'Lato',sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
 .sidenav {
 	position: fixed;
+	margin-top: 50px;
 }
 
 .sidebar {
@@ -19,6 +25,25 @@ a {
 	padding: 4px 20px;
 }
 
+.content h4{
+	margin-top: 24px;
+}
+
+.explanation {
+	margin-top: 1em;
+	margin-left: 1px;
+	margin-right: 1px;
+	background: #eeeeee;
+	padding: .85em;
+	border: 1px solid #696969;
+	border-radius: 4px;
+    transition: all 0.05s ease-in;
+}
+
+.explanation:hover {
+	background: white;
+	box-shadow: 1px 1px 0px 0px #555555;
+}
 
 /* print all linenums in prettify */
 .prettyprint > .linenums li.L0,
