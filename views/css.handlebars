@@ -1,0 +1,210 @@
+
+<div class="row">
+<h1>CSS Cliffnotes</h1>
+<p>CSS stands for Cascading Style Sheets.</p>
+
+<h3>Terminology</h3>
+<p>CSS rules are made up of two parts: the "style rules" and the selectors.</p>
+<ul>
+<li><strong>Selector</strong> : way to specify a particular type of tag (e.g. all "h3" tags).</li>
+<li><strong>Property</strong> : a rule or set of rules to apply to this tag. These rules are found between curly braces {...}</li>
+</ul>
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint">
+/* this is what a css comment looks like */
+h1 {
+  font-weight: bold; /* each rule must end in a semi-colon */
+  font-size: 36px;   /* for now, stick with px as numerical size and positioning values */
+}
+      </pre>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Selectors</h3>
+<p>As we mentioned earlier, HTML elements often have a "class" or "id" attribute. Use these attributes to select certain elements and then create style rules for them.</p>
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint linenums">
+/* Element selector - finds all "a" tags */
+a { font-weight: bold; }
+
+/* Class selector - all tags with class "player" */
+.player { ... }
+
+/* Id selector - one tags with id "winner" */
+#winner { ... }
+      </pre>
+    </div>
+  </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">Using ID and Class</div>
+  <div class="panel-body">Many tags can have the same class and therefore is good for describing frequent types of tags, e.g. a blue button. However, an ID should be unique to the tag, which makes it good if it's the only element in the page, e.g. a search text box.
+  </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+<h3>Using CSS</h3>
+
+<p>There are three ways to include CSS in your HTML pages.
+</p>
+
+
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums">
+<!-- External CSS -->
+<link href="css/main.css" rel="stylesheet" />
+
+<!-- Internal CSS tag -->
+<style type="text/css">
+.test { ... }
+</style>
+
+<!--Inline -->
+<div style="background-color: black">...</div>
+      </pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="annotation">
+      The best way of including CSS on your page. It reduces clutter, and separates the styling from the content (HTML).
+    </div>
+    <div class="annotation">
+      You can include CSS directly on a page, but generally not advised to do so.
+    </div>
+    <div class="annotation">
+      You can even put it directly on an element, but can get really gnarly really quickly.
+    </div>
+  </div>
+
+</div>
+
+<div class="clearfix"></div>
+
+
+<h3>Specificity</h3>
+
+<p>
+  If you have selectors applying to the same element, the one with higher specificity wins. You can think of specificity with these four distinct categories of selectors:
+</p>
+
+<div class="img img-responsive center" style="text-align: center">
+<img src="https://css-tricks.com/wp-content/csstricks-uploads/specificity-calculationbase.png" alt="css-specificity-rules"/>
+</div>
+<br />
+<p>
+  If selectors have the same specificity level, then the latest rule is the one that wins in the end. Read more <a href="https://css-tricks.com/specifics-on-css-specificity/">here</a>. When you're working with a framework, it's helpful to know how to style your own elements since you'll be overriding existing style sheets.
+</p>
+
+<div class="panel panel-danger">
+  <div class="panel-heading">Careful!</div>
+  <div class="panel-body">You can use <code>!important</code> at the end of the property (before the semicolon), and it's like the magic wand / Trump card of CSS rules. It's best to avoid these if possible, since it becomes really difficult to debug and change later on.
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Positioning</h3>
+
+<p>HTML/CSS design philosophy is to think of divs as rows that stretch across, and fixed-width content. More content gets placed vertically; doing horizontal scrolling is not what HTML is designed for. <br /><br />
+Positions are one of:</p>
+
+  <ul>
+    <li>Fixed: (0,0) of box is top left corner of page (html tag). Requires you to specify "top" and "left". Element does not move when you scroll (see nav on the side).</li>
+    <li>Static: (0,0) of box is rendered in order as it appears in the html</li>
+    <li>Relative / Static: (0,0) of box is relative to its default position</li>
+    <li>Absolute: (0,0) of box is relative to first ancestor that has a position other than static. Positions element regardless of anything else on the page. Avoid using this if possible (makes it really hard to debug!)</li>
+  </ul>
+<p>By default, position is static. See <a href="http://blog.teamtreehouse.com/css-positioning">here</a> for more info.</p>
+
+<br /><br />
+
+<h3>Box Model</h3>
+
+<p>
+<span class="pull-right">
+  <img src="images/boxmodel.png" />
+</span>
+
+  Chrome, Firefox, and most browsers show you this information pretty well in your developer tools. You can tweak these numbers, and also see how the page is laid out.
+  <br /><br />
+   For example, the CSS for the following box would look like this on the right.
+</p>
+
+<div class="clearfix"></div>
+
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums">
+.box {
+  width: 200px;
+  height: 100px;
+  padding: 10px 5px;
+  border: 5px solid black;
+  margin: 10px 5px;
+}
+      </pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="annotation">
+      <strong>Padding</strong> : space between your content and teh border
+    </div>
+    <div class="annotation">
+      <strong>Border</strong> : width of border, line type, and color
+    </div>
+    <div class="annotation">
+      <strong>Margin</strong> : spacing between next element and the border
+    </div>
+
+  </div>
+
+</div>
+<br />
+
+<div class="clearfix"></div>
+
+
+<div class="panel panel-info">
+  <div class="panel-heading">Shorthand and longhand rules</div>
+  <div class="panel-body">Many properties have their own longhand, for example padding spacing. You can specify different values for different sides starting from the top, in clockwise order - <code>1px 2px 3px 4px</code> would be different spacing on the 1px top, 2px right, 3px bottom, and 4px left padding. You can also separate them out into <code>padding-top</code>, etc.
+  </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+
+<h3>Resources</h3>
+
+<h4><a href="http://www.lesliefranke.com/files/reference/csscheatsheet.html">CSS Cheatsheet</a></h4>
+
+<p>Can't remember that exact syntax or style name? Here's a handy cheat sheet.</p>
+
+
+<h4><a href="http://www.smashingmagazine.com/2009/08/taming-advanced-css-selectors/">Advanced CSS Selectors</a></h4>
+
+<p>Really fun. For the adventurous.</p>
+
+<h4><a href="https://drewish.com/tools/vertical-rhythm/">Vertical Rhythm</a></h4>
+
+<p>For computing CSS font sizes such that your page has a consistent vertical rhythm.</p>
+
+</div>

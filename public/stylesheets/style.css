@@ -29,6 +29,11 @@ body {
 	margin-top: 24px;
 }
 
+.panel-body {
+	padding-left: 15px;
+}
+
+.annotation,
 .explanation {
 	margin-top: 1em;
 	margin-left: 1px;
