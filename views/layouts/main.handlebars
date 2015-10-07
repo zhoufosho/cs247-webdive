@@ -12,8 +12,8 @@
     <![endif]-->
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>{{title}}</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -21,6 +21,13 @@
 
   </head>
   <body>
+    <ul class="nav nav-tabs visible-sm visible-xs nav-links">
+      <li class="home-nav"><a href="/">Home</a></li>
+      <li class="html-nav"><a href="/html">HTML</a></li>
+      <li class="css-nav"><a href="/css">CSS</a></li>
+      <li class="js-nav"><a href="/js">JS</a></li>
+      <li class="grids-nav"><a href="/grids">Grids</a></li>
+    </ul>
     <div class="container">
       <!-- add some styling here -->
       <div class="row">
@@ -29,11 +36,11 @@
         </div>
         <div class="col-md-2 hidden-sm hidden-xs">
           <nav class="sidebar sidenav">
-            <ul class="sidebar">
-              <li><a href="/html">1 | HTML Refresher</a></li>
-              <li><a href="/css">2 | CSS CliffNotes</a></li>
-              <li><a href="/js">3 | Javascript</a></li>
-              <li><a href="/grids">4 | Grids</a></li>
+            <ul class="sidebar nav-links">
+              <li class="html-nav"><a href="/html">1 | HTML Refresher</a></li>
+              <li class="css-nav"><a href="/css">2 | CSS CliffNotes</a></li>
+              <li class="js-nav"><a href="/js">3 | Javascript</a></li>
+              <li class="grids-nav"><a href="/grids">4 | Grids</a></li>
             </ul>
           </nav>
         </div>
