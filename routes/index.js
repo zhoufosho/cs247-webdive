@@ -19,4 +19,8 @@ router.get('/js', function(req, res, next) {
   res.render('js', { title: 'Javascript Jam' });
 });
 
+router.get('/grids', function(req, res, next) {
+  res.render('grids', { title: 'Grids Galore' });
+});
+
 module.exports = router;
