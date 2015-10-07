@@ -1,6 +1,150 @@
 
 <div class="row">
 <h1>Javascript Jam</h1>
+<p>Adding interactivity, or the icing on the cake. Also, known as "not java".</p>
 
+<h3>jQuery</h3>
+<p>
+<a href="https://jquery.com/">jQuery</a> is a javascript library that tries to make cross-browser programming easier. It does so by adding a variable "$" (dollar sign) to the global browser namespace.
+</p>
+
+<h3>Using jQuery</h3>
+
+<p>
+  First, start by including jQuery. Add this to the bottom of your body, right before the closing tag but before the rest of your other javascript files. Importing javascript uses the <code>&lt;script&gt;</code> tag, which is different than when including CSS files.
+</p>
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">
+  &lt;body&gt;
+    &lt;!-- Latest compiled and minified JavaScript --&gt;
+    &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"&gt;&lt;/script&gt;
+    &lt;!-- include other javascript files here --&gt;
+  &lt;/body&gt;
+      </pre>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<p>
+  Next, we set up the "main" function by creating a callback function that handles the document.ready event.
+</p>
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint linenums">
+$(document).ready(function() {
+  // your code here
+})</pre>
+    </div>
+  </div>
+</div>
+
+<h3>Syntax</h3>
+
+<p>jQuery syntax is made up of three parts:</p>
+
+<ul>
+  <li><strong>Selector</strong> : specifies what element the jQuery callback or animation will act on. This behaves almost exactly like a CSS selector. IDs start with a "#" and classes with ".". They take the form <code>$('.selector')</code>.</li>
+  <li><strong>Function</strong> : you can use this from a library or plugin. See all <a href="https://api.jquery.com/">here</a>. </li>
+  <li><strong>Handler</strong> : sometimes optional, but this is a function to execute each time the function is triggered.</li>
+</ul>
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint linenums linenums">
+$(document).ready(function() {
+  
+  // immediately executes when page is ready
+  $(".button .text").css("opacity", 0.5);
+
+
+  // callback that executes on event handling
+  $(".button").click(function() {
+    // function that executes every time .button is clicked
+    $(".button .text").css("opacity", 1.0);
+  });
+});
+  </pre>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Callbacks &amp; Event Handling</h3>
+
+<p>These methods are used to register behaviors to take effect when the user interacts with the browser, and to further manipulate those registered behaviors. Some of the most common event methods:</p>
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint linenums">
+$(document).ready(function() {
+  $(".button").click(function() { ... })
+  $(".button").hover(function() { ... })
+  $(document).keypress(function() { ... })
+  $(document).scroll(function() { ... })
+  $(".maze").mouseenter(function() { ... })
+  $(".maze").mouseleave(function() { ... })
+};)
+  </pre>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<p>You can chain functions together, and the browser will execute them in order.</p>
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint">$(".button").hide().delay(200).fadeIn(1000);</pre>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="panel panel-danger">
+  <div class="panel-heading">Careful!</div>
+  <div class="panel-body">
+    If you try to set each of these operations as separate functions, there's no telling what the order or sequence of events would be. Stick with chaining events for now.
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Animations</h3>
+<p>
+jQuery has a function called <code>animate()</code> that allow you to define a set of CSS rules to animate. Check out the documentation <a href="http://api.jquery.com/animate/">here</a>.
+</p>
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint">
+// animates all these properties simultaneously
+$(".card").animate({
+    "top": "+50px",
+    "left": "+75px",
+    "opacity": "0.5"
+}, 2000);
+
+// animates one effect after the other
+$(".card").animate({"top": "+50px"}).animate({"left": "+50px"});
+      </pre>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
 
 </div>
