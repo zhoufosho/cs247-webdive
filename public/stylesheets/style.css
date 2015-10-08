@@ -21,7 +21,6 @@ h1 {
 	font-family: 'Francois One', sans-serif;
 }
 
-.sidebar li.active a,
 a:hover{
   color: #173442;
   text-decoration: none;
@@ -42,7 +41,12 @@ a:hover{
 }
 
 .sidebar li a{
-  color: #333;
+  color: #00B7FF;
+}
+
+.sidebar li:hover a {
+	font-weight: 700;
+	border-bottom: none;
 }
 
 .sidebar li.active a{
@@ -61,6 +65,18 @@ a:hover{
 
 .panel-body {
 	padding-left: 15px;
+}
+
+.homepage {
+	margin-top: 40%;
+}
+
+.homepage h1 {
+	font-size: 48px;
+}
+
+.homepage p{
+	font-size: 28px;
 }
 
 .annotation,

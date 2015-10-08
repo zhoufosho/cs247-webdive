@@ -26,38 +26,6 @@ h1 {
 
 <div class="clearfix"></div>
 
-<h3>Selectors</h3>
-<p>As we mentioned earlier, HTML elements often have a "class" or "id" attribute. Use these attributes to select certain elements and then create style rules for them.</p>
-
-<div class="snippet">
-  <div class="col-md-12">
-    <div class="row">
-      <pre class="prettyprint linenums">
-/* Element selector - finds all "a" tags */
-a { font-weight: bold; }
-
-/* Class selector - all tags with class "player" */
-.player { ... }
-
-/* Id selector - one tags with id "winner" */
-#winner { ... }
-      </pre>
-    </div>
-  </div>
-</div>
-
-
-<div class="clearfix"></div>
-
-<div class="panel panel-info">
-  <div class="panel-heading">Using ID and Class</div>
-  <div class="panel-body">Many tags can have the same class and therefore is good for describing frequent types of tags, e.g. a blue button. However, an ID should be unique to the tag, which makes it good if it's the only element in the page, e.g. a search text box.
-  </div>
-</div>
-
-
-<div class="clearfix"></div>
-
 <h3>Using CSS</h3>
 
 <p>There are three ways to include CSS in your HTML pages.
@@ -98,8 +66,69 @@ a { font-weight: bold; }
 <div class="clearfix"></div>
 
 
-<h3>Specificity</h3>
+<h3>Selectors</h3>
+<p>As we mentioned earlier, HTML elements often have a "class" or "id" attribute. Use these attributes to select certain elements and then create style rules for them.</p>
 
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint linenums">
+/* Element selector - finds all "a" tags */
+a { font-weight: bold; }
+
+/* Class selector - all tags with class "player" */
+.player { ... }
+
+/* Id selector - one tags with id "winner" */
+#winner { ... }
+      </pre>
+    </div>
+  </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">Using ID and Class</div>
+  <div class="panel-body">Many tags can have the same class and therefore is good for describing frequent types of tags, e.g. a blue button. However, an ID should be unique to the tag, which makes it good if it's the only element in the page, e.g. a search text box.
+  </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+<h3>Multiple Classes</h3>
+
+<p>CSS allows you to define elements with multiple classes. This will help you maintain code legibility and reusability. You can add them simply to separating them with a space in our attribute. Take this for example:</p>
+
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums">
+<p class="pullquote center larry">
+  ...
+</p>
+      </pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums">
+/* All these will select the exact same element */
+.pullquote { ... }
+.center { ... }
+p.larry { ... }</pre>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Specificity</h3>
+<p>
+If you are overriding another stylesheet (say, bootstrap), <strong>you should include your custom css AFTER the others</strong>. "Why?", you might ask.
+</p>
 <p>
   If you have selectors applying to the same element, the one with higher specificity wins. You can think of specificity with these four distinct categories of selectors:
 </p>
@@ -109,7 +138,7 @@ a { font-weight: bold; }
 </div>
 <br />
 <p>
-  If selectors have the same specificity level, then the latest rule is the one that wins in the end. Read more <a href="https://css-tricks.com/specifics-on-css-specificity/">here</a>. When you're working with a framework, it's helpful to know how to style your own elements since you'll be overriding existing style sheets.
+  It boils down to specificity. If selectors have the same specificity level, then the latest rule is the one that wins in the end. Read more <a href="https://css-tricks.com/specifics-on-css-specificity/">here</a>. When you're working with a framework, you'll be overriding existing style sheets so you must include yours at the end (or come up with more specific rules, but that's typically harder).
 </p>
 
 <div class="panel panel-danger">
@@ -234,6 +263,9 @@ div {
 
 <p>Can't remember that exact syntax or style name? Here's a handy cheat sheet.</p>
 
+<h4><a href="https://css-tricks.com/multiple-class-id-selectors/">Multiple Class and ID Selectors</a></h4>
+
+<p>More on selectors.</p>
 
 <h4><a href="http://www.smashingmagazine.com/2009/08/taming-advanced-css-selectors/">Advanced CSS Selectors</a></h4>
 
