@@ -4,7 +4,7 @@
  * COLORS:
  * dark-grey: #696969;
  * light-grey: #eeeeee;
- * blue: #00B7FF;
+ * blue: #00A0FF;
  * dark blue: #173442
  */
 
@@ -14,17 +14,18 @@ body {
 }
 
 a {
-	color: #00B7FF;
+	color: #00A0FF;
 }
 
 h1 {
 	font-family: 'Francois One', sans-serif;
 }
 
-a:hover{
-  color: #173442;
-  text-decoration: none;
-  border-bottom: 1px solid #00B7FF;
+a:hover {
+	background-color: #00A0FF;
+	color: white;
+	padding: 5px 0px;
+	text-decoration: none;
 }
 
 .sidenav {
@@ -41,18 +42,45 @@ a:hover{
 }
 
 .sidebar li a{
-  color: #00B7FF;
+  color: #00A0FF;
 }
 
-.sidebar li:hover a {
+/*a:hover{
+  color: #173442;
+  text-decoration: none;
+  border-bottom: 1px solid #00A0FF;
+}
+*/
+
+/*.sidebar li:hover a {
 	font-weight: 700;
 	border-bottom: none;
+}*/
+
+.sidebar :not(.active) li:hover a {
+	background-color: #00A0FF;
+	color: white;
+	padding: 5px 0px;
 }
 
 .sidebar li.active a{
 	font-weight: 700;
-	color: #00B7FF;
-	border-bottom: none;
+	background-color: #00A0FF;
+	color: white;
+	padding: 5px 0px;
+}
+
+.nav-tabs {
+	width: auto;
+}
+
+.nav :not(.active) a{
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-tabs li a:hover{
+	background-color: white;
+	color: inherit;
 }
 
 .content {
@@ -67,8 +95,17 @@ a:hover{
 	padding-left: 15px;
 }
 
+body.home {
+	height: 100vh;
+	border: solid 15px white;
+	background-image: linear-gradient(to bottom, transparent 10%, rgba(185, 185, 185, 0.4) 50%), url("../images/mountains.jpg");
+	background-size: cover;
+	background-position: 20% 0%;
+	background-repeat: no-repeat;
+}
+
 .homepage {
-	margin-top: 40%;
+	margin-top: 30%;
 }
 
 .homepage h1 {
@@ -77,6 +114,7 @@ a:hover{
 
 .homepage p{
 	font-size: 28px;
+	color: #666;
 }
 
 .annotation,
