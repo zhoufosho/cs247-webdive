@@ -100,7 +100,7 @@ adder(3, 4);
       You can also assign a function to a variable. In Javascript, every function is actually a <code>Function</code> object. 
     </div>
     <div class="annotation">
-      Try each of these functions! Both are entirely valid.
+      Try each of these functions! Both are completely valid.
     </div>
   </div>
 
@@ -116,18 +116,18 @@ adder(3, 4);
   <div class="col-md-6">
     <div class="row">
       <pre class="prettyprint linenums">
-var cat;
-cat.sound = "Meow";
+var yourChick = {};
+yourChick.thirsty = true;
 
-var fish = { name: "Nemo", color:"orange" };
+var missingFish = { name: "Nemo", color: "orange" };
 
-var myCar = { 
-    brand: "Tesla", 
+var dreamCar = { 
+    brand: "Audi", 
     color: "white" 
 };
 
-myCar.brand;
-myCar['brand'];
+dreamCar.brand;
+dreamCar['brand'];
       </pre>
     </div>
   </div>
@@ -138,6 +138,7 @@ myCar['brand'];
     <div class="annotation">
       Notice spaces and line breaks don't matter. An object definition can be multiple lines.
     </div>
+    <div style="height: 50px" class="hidden-sm hidden-xs"></div>
     <div class="annotation">
         You can access the object properties in two different ways.
     </div>
@@ -146,16 +147,67 @@ myCar['brand'];
 </div>
 
 <div class="clearfix"></div>
+<br /><br />
+<p>Because functions can also be assigned to variables, you can assign functions to object properties.</p>
 
-To do: 
-- objects
-- arrays
-- for loops
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums">
+var myBirthday = { 
+    month: "Feb", 
+    date: 9,
+    fullDate: function() {
+        return this.month + ' ' + this.date;
+    }
+};
 
-- useful functions
-    - console.log
-    - setTimeout
-    - alert
+myBirthday.fullDate(); // evaluates to Feb 9
+      </pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="annotation">
+      To execute a method of a particular object, make sure to invoke it with the double parentheses ().
+    </div>
+    <div class="annotation">
+      Without the (), the function definition will be returned.
+    </div>
+  </div>
+
+</div>
+
+<div class="clearfix"></div>
+
+
+<h3>Arrays &amp; For Loops</h3>
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">
+var blank = []; // initializes an empty array
+
+var tones = ["Do", "Re", "Mi"];
+tones[3] = "Fa";  // careful when using this, tones[10] will create weird holes!
+tones[tones.length] = "So"  // Notice length is a property of array
+tones.push("La");
+
+console.log("There are " + tones.length + " notes.");
+
+var song = "";
+for(var i=0; i&lt;tones.length; i++) {
+    song +=  "Let's sing " + tones[i] + "\n";
+}
+console.log(song);
+      </pre>
+    </div>
+  </div>
+
+</div>
+
+<div class="clearfix"></div>
+
 
 
 </div>
