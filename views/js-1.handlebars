@@ -5,7 +5,7 @@
 <div class="panel panel-info">
     <div class="panel-heading">To run sample code</div>
     <div class="panel-body">
-        Feel free to follow along! Open the console on your Developer Tools and paste the code in! (Mac shortcut: cmd + opt + J or windows: ctrl + shift + J)
+        Feel free to follow along! Open the console on your Developer Tools and paste the code in! (For Chrome, Mac shortcut: cmd + opt + J or windows: ctrl + shift + J)
     </div>
 </div>
 
@@ -42,20 +42,29 @@ var zip = 94309;
   <div class="col-md-6">
     <div class="row">
       <pre class="prettyprint linenums">
-// this is a single line comment
-var city;
-city = "Palo Alto";
+var dessert = "chocolate";
+if(dessert = "chocolate") {
+    console.log("Yum"); // shows up in the console
+} else if (dessert === "eggplant"){
+    console.log("Ew");
+} else {
+    console.log("I'm hungry, ma");
+}
 
-/*
- * Comment on multiple lines.
- */
-var zip = 94309;
+if(0 == "") {
+    // alert() brings up those icky web1.0 popups
+    alert("this is whack!!!$!$!"); 
+}
       </pre>
     </div>
   </div>
   <div class="col-md-6">
     <div class="annotation">
-      <strong>Important</strong>: Almost always use triple equals ===. This checks both 
+      <strong>Important</strong>: You should almost always use triple equals ===. This checks that elements are equal in both value and type.
+    </div>
+    <div style="height: 100px" class="hidden-sm hidden-xs"></div>
+    <div class="annotation">
+      <strong>Do not</strong> use double equals (==). Weird things start happening because it tries to convert values to the same type. Just don't do it.
     </div>
   </div>
 
@@ -63,8 +72,90 @@ var zip = 94309;
 
 <div class="clearfix"></div>
 
+<h3>Functions</h3>
 
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums">
+function add(a, b) {
+    return a + b;
+}
 
+var adder = function(a, b) {
+    return a + b;
+}
+
+add(1, 2);
+adder(3, 4);
+
+      </pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="annotation">
+      You can define functions inline by using the keyword <strong>function</strong>.
+    </div>
+    <div class="annotation">
+      You can also assign a function to a variable. In Javascript, every function is actually a <code>Function</code> object. 
+    </div>
+    <div class="annotation">
+      Try each of these functions! Both are entirely valid.
+    </div>
+  </div>
+
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Objects</h3>
+
+<p>Objects have properties (values) and methods (functions).</p>
+
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums">
+var cat;
+cat.sound = "Meow";
+
+var fish = { name: "Nemo", color:"orange" };
+
+var myCar = { 
+    brand: "Tesla", 
+    color: "white" 
+};
+
+myCar.brand;
+myCar['brand'];
+      </pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="annotation">
+      There are a number of different ways to define objects and their properties. 
+    </div>
+    <div class="annotation">
+      Notice spaces and line breaks don't matter. An object definition can be multiple lines.
+    </div>
+    <div class="annotation">
+        You can access the object properties in two different ways.
+    </div>
+  </div>
+
+</div>
+
+<div class="clearfix"></div>
+
+To do: 
+- objects
+- arrays
+- for loops
+
+- useful functions
+    - console.log
+    - setTimeout
+    - alert
 
 
 </div>
