@@ -27,4 +27,9 @@ router.get('/js1', function(req, res, next) {
   res.render('js-1', { title: 'CS247: Javacript Basics' });
 });
 
+router.get('/jsdom', function(req, res, next) {
+  res.render('js-dom', { title: 'CS247: DOM Traversal' });
+});
+
+
 module.exports = router;
