@@ -23,8 +23,12 @@ router.get('/grids', function(req, res, next) {
   res.render('grids', { title: 'CS247: Grids Galore' });
 });
 
-router.get('/js1', function(req, res, next) {
-  res.render('js-1', { title: 'CS247: Javacript Basics' });
+router.get('/jsbasics', function(req, res, next) {
+  res.render('js-basics', { title: 'CS247: Javacript Basics' });
+});
+
+router.get('/jspatterns', function(req, res, next) {
+  res.render('js-patterns', { title: 'CS247: Javacript Basics' });
 });
 
 module.exports = router;
