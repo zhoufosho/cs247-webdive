@@ -1,0 +1,124 @@
+<div class="row">
+<h1>Traversing the DOM</h1>
+<p> INTRO TEXT HERE </p>
+
+<h3>What is the DOM?</h3>
+<p> The DOM (Document Object Model) represents your HTML file as a tree, with parent nodes and child nodes.
+
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div&gt;
+      &lt;p&gt;Hi there!&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row annotation">
+      	<p>This is the DOM tree for the code on the left.</p>
+      	<img src="images/domtree.png" style="height:100px"></img>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>DOM Objects</h3>
+<p>Each of the nodes in the DOM tree is an object that you can access with JavaScript. Using Javascript, you can edit the contents of a node, change its properties, or even create and remove nodes dynamically. </p>
+
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">document.body.style.backgroundColor = 'blue';</pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row annotation">
+      	<p>This Javascript line will change the CSS backgroundColor property of the body element to blue.</p>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>The root of the DOM</h3>
+<p>The root of the DOM is always <code>document.documentElement</code>, which gives you the topmost <code>&lt;html&gt;</code> element. It's never null. 
+<p>Another valuable "root" is <code>document.body</code>. If your document has a body element before this line of code runs, it will return that body element; otherwise null.</p>
+
+<div class="clearfix"></div>
+
+<h3>Accessing Children</h3>
+<p>An element keeps references to its child nodes in an array, the <code>childNodes</code> property.
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">var childNodes = document.body.childNodes;
+
+for(var i = 0; i < childNodes.length; i++) {
+  console.log(childNodes[i]);
+}</pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row annotation">
+      	<p>This will print out all the child nodes of the body element in the console, including text nodes.</p>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<p> What if you want all the child nodes that are elements (and not text nodes)? You can use the <code>children</code> array, which only stores element nodes.
+
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">var children = document.body.children;
+
+for(var i = 0; i < children.length; i++) {
+  console.log(children[i]);
+}</pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row annotation">
+      	<p>Only element node children.</p>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Accessing Other Nodes</h3>
+<p>There are other "relationships" that you can take advantage of in Java. For example, all nodes store a reference to their parent element through the <code>parent</code> property. Here are a few more:
+
+<div class="snippet">
+  <div class="col-md-7">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">var parent = elem.parent;
+var firstChild = elem.firstChild; // same as childNodes[0]
+var lastChild = elem.lastChild;
+var previousSib = elem.previousSibling;
+var nextSib = elem.nextSibling;</pre>
+    </div>
+  </div>
+</div>
+
+</p>
+
+
+
+
+
+
+
+
+
+</div>

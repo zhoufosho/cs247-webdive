@@ -31,4 +31,9 @@ router.get('/jspatterns', function(req, res, next) {
   res.render('js-patterns', { title: 'CS247: Javacript Basics' });
 });
 
+router.get('/jsdom', function(req, res, next) {
+  res.render('js-dom', { title: 'CS247: DOM Traversal' });
+});
+
+
 module.exports = router;
