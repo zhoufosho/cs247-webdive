@@ -1,12 +1,12 @@
 <div class="row">
 <h1>Traversing the DOM</h1>
-<p> INTRO TEXT HERE </p>
+<p> document.body.appendChild(DOM_JOKE_HERE); </p>
 
 <h3>What is the DOM?</h3>
-<p> The DOM (Document Object Model) represents your HTML file as a tree, with parent nodes and child nodes.
+<p> The DOM (Document Object Model) represents your HTML file as a tree, with parent nodes and child nodes.</p>
 
 <div class="snippet">
-  <div class="col-md-6">
+  <div class="col-md-8">
     <div class="row">
       <pre class="prettyprint linenums no-esp">&lt;html&gt;
   &lt;head&gt;
@@ -20,31 +20,30 @@
 &lt;/html&gt;</pre>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <div class="row annotation">
-      	<p>This is the DOM tree of element nodes for the code on the left.</p>
-      	<img src="images/domtree.png" style="height:100px"></img>
+      	<p>This is the DOM tree of element nodes for the code on the left.</p><br />
+        <p style="text-align: center">
+      	<img src="images/domtree.png" style="height:100px"></img></p>
     </div>
   </div>
 </div>
 
 <div class="clearfix"></div>
 
-<p>The DOM tree also contains text nodes, not illustrated above. The text nodes include any whitespace or text between tags (including newlines!). Be careful of this!</p>
-
 
 <h3>DOM Objects</h3>
 <p>Each of the nodes in the DOM tree is an object that you can access with JavaScript. Using Javascript, you can edit the contents of a node, change its properties, or even create and remove nodes dynamically. </p>
 
 <div class="snippet">
-  <div class="col-md-6">
+  <div class="col-md-8">
     <div class="row">
-      <pre class="prettyprint linenums no-esp">document.body.style.backgroundColor = 'blue';</pre>
+      <pre class="prettyprint">document.body.style.backgroundColor = 'blue';</pre>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <div class="row annotation">
-      	<p>This Javascript line will change the CSS backgroundColor property of the body element to blue.</p>
+      	<p>This will change the CSS backgroundColor property of the body element to blue.</p>
     </div>
   </div>
 </div>
@@ -52,132 +51,16 @@
 <div class="clearfix"></div>
 
 <h3>The root of the DOM</h3>
-<p>The root of the DOM is always <code>document.documentElement</code>, which gives you the topmost <code>&lt;html&gt;</code> element. It's never null. 
-<p>Another valuable "root" is <code>document.body</code>. If your document has a body element before this line of code runs, it will return that body element; otherwise null.</p>
+<p>The root of the DOM is always <code>document.documentElement</code>, which gives you the topmost <code>&lt;html&gt;</code> element. It's never null. Another valuable "root" is <code>document.body</code>. If your document has a body element before this line of code runs, it will return that body element; otherwise null.</p>
 
-<div class="clearfix"></div>
+<br />
 
-<h3>Accessing Children</h3>
-<p>An element keeps references to its child nodes in an array, the <code>childNodes</code> property.
-<div class="snippet">
-  <div class="col-md-6">
-    <div class="row">
-      <pre class="prettyprint linenums no-esp">var childNodes = document.body.childNodes;
-
-for(var i = 0; i < childNodes.length; i++) {
-  console.log(childNodes[i]);
-}</pre>
+<div class="panel panel-danger">
+    <div class="panel-heading">Caution!</div>
+    <div class="panel-body">
+      <p>As a more general rule, it is impossible to reference elements that are not yet rendered at the time your script executes. This means if you have javascript that manipulates in the DOM in your <code>&lt;head&gt;</code>, you will get errors.
+      </p>
     </div>
-  </div>
-  <div class="col-md-6">
-    <div class="row annotation">
-      	<p>This will print out all the child nodes of the body element in the console, including text nodes.</p>
-    </div>
-  </div>
-</div>
-
-<div class="clearfix"></div>
-
-<p> What if you want all the child nodes that are elements (and not text nodes)? You can use the <code>children</code> array, which only stores element nodes.
-
-<div class="snippet">
-  <div class="col-md-6">
-    <div class="row">
-      <pre class="prettyprint linenums no-esp">var children = document.body.children;
-
-for(var i = 0; i < children.length; i++) {
-  console.log(children[i]);
-}</pre>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="row annotation">
-      	<p>Only element node children.</p>
-    </div>
-  </div>
-</div>
-
-<div class="clearfix"></div>
-
-<h3>Accessing Other Nodes</h3>
-<p>There are other "relationships" that you can take advantage of in Java. For example, all nodes store a reference to their parent element through the <code>parent</code> property. Here are a few more:
-
-<div class="snippet">
-  <div class="col-md-7">
-    <div class="row">
-      <pre class="prettyprint linenums no-esp">var parent = elem.parent;
-var firstChild = elem.firstChild; // same as childNodes[0]
-var lastChild = elem.lastChild;
-var previousSib = elem.previousSibling;
-var nextSib = elem.nextSibling;
-
-// there are also element-only versions of these!
-var firstElemChild = elem.firstElementChild;</pre>
-    </div>
-  </div>
-</div>
-
-
-<div class="clearfix"></div>
-
-<h3>Adding and Removing Nodes</h3>
-<p>To add a node to the DOM, you need to first create the element, and then append it to the right place in the DOM. You can also remove nodes that you have a reference to.</p>
-<div class="snippet">
-  <div class="col-md-6">
-    <div class="row">
-      <pre class="prettyprint linenums no-esp">var elem = document.createElement('div');
-document.body.appendChild(elem);
-document.body.removeChild(elem);</pre>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="row annotation">
-      <p>This piece of code creates a div, appends it to the end of the body, and then removes it right away.</p>
-    </div>
-  </div>
-</div>
-
-
-<div class="clearfix"></div>
-
-
-
-<h3>Accessing Content and Attributes</h3>
-To access the HTML inside of a node, you can use the <code>innerHTML</code> property. You can also use edit this property to make changes to the HTML.</p>
-<div class="snippet">
-  <div class="col-md-6">
-    <div class="row">
-      <pre class="prettyprint linenums no-esp">&lt;body&gt;
-      &lt;div&gt;&lt;div&gt;
-  &lt;script&gt;
-    var div = document.body.firstElementChild;
-    div.innerHTML = "banana";
-  &lt;/script&gt;
-&lt;/body&gt;</pre>
-    </div>
-  </div>
-  <div class="col-md-6">
-  	<div class="row annotation">
-  		<p> This will set the text between the div tags to "banana."</p>
-  	</div>
-  </div>
-</div>
-
-<div class="clearfix"></div>
-
-<p>You can also get and set attributes using JavaScript.
-<div class="snippet">
-  <div class="col-md-6">
-    <div class="row">
-      <pre class="prettyprint linenums no-esp">var id = document.body.getAttribute("id");
-document.body.setAttribute("className", "big");</pre>
-    </div>
-  </div>
-  <div class="col-md-6">
-  	<div class="row annotation">
-  		<p>There are other ways to edit properties that you can easily look up if you need them.</p>
-  	</div>
-  </div>
 </div>
 
 <div class="clearfix"></div>
@@ -188,24 +71,143 @@ document.body.setAttribute("className", "big");</pre>
   <div class="col-md-8">
     <div class="row">
       <pre class="prettyprint linenums no-esp">var info = document.getElementById('info');
+var links = document.getElementsByClassName("links"); // returns array
 var paragraphArray = document.getElementsByTagName('p');
 var infoParagraphArray = info.getElementsByTagName('p');</pre>
     </div>
   </div>
   <div class="col-md-4">
-  	<div class="row annotation">
-  		<p>Can you guess what these lines of code do? How do you think line 2 and line 3 are different?</p>
-  	</div>
+    <div class="row annotation">
+      <p>Can you guess what these lines of code do? How do you think line 2 and line 3 are different?</p>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Accessing Content and Attributes</h3>
+To access the HTML inside of a node, you can use the <code>innerHTML</code> property. You can also use edit this property to make changes to the HTML.</p>
+<div class="snippet">
+  <div class="col-md-8">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">&lt;body&gt;
+  &lt;div&gt;&lt;div&gt;
+  &lt;script&gt;
+    var div = document.body.firstElementChild;
+    div.innerHTML = "banana";
+  &lt;/script&gt;
+&lt;/body&gt;</pre>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row annotation">
+      <p> This will set the text between the div tags to "banana."</p>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<p>You can also get and set attributes using JavaScript.
+<div class="snippet">
+  <div class="col-md-8">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">var id = document.body.getAttribute("id");
+document.body.setAttribute("className", "big");</pre>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row annotation">
+      <p>There are other ways to edit properties that you can easily look up if you need them.</p>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Accessing Children</h3>
+<p>An element keeps references to its child node elements in an array, the <code>children</code> property.
+
+<div class="snippet">
+  <div class="col-md-8">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">
+&lt;ul id="candy"&gt;
+  &lt;li&gt;Snickers&lt;/li&gt;
+  &lt;li&gt;Milky Way&lt;/li&gt;
+  &lt;li&gt;Warheads Sour Candy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script&gt;
+var candies = document.getElementById("candy").children;
+
+for(var i = 0; i < candies.length; i++) {
+  var candy = candies[i]
+  console.log(candy.innerHTML);
+}
+&lt;/script&gt;</pre>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row annotation">
+        <p>Notice that the <code>&lt;li&gt;</code> elements are nested in the <code>&lt;ul&gt;</code> element. The <code>&lt;li&gt;</code> are the children in this case. </p>
+    </div>
+    <div class="row annotation">
+      	<p>This will allow you to access all the child elements of the element with the id <em>candy</em>. </p>
+    </div>
+    <div class="row annotation">
+        <p>By accessing each node's <code>innerHTML</code>, you can then print out all the text within each of these elements.</p>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Accessing Other Nodes</h3>
+<p>There are other "relationships" that you can take advantage of in javascript. For example, all nodes store a reference to their parent element through the <code>parent</code> property. Here are a few more:
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint no-esp">var parent = elem.parent;
+var firstChild = elem.firstElementChild; // same as children[0]
+var lastChild = elem.lastElementChild;
+var previousSib = elem.previousElementSibling;
+var nextSib = elem.nextElementSibling;</pre>
+    </div>
+  </div>
+</div>
+<br />
+<div class="clearfix"></div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">children vs childNodes</div>
+    <div class="panel-body">
+      <p>We focus here on the <code>children</code> attribute, because generally you'll just be traversing DOM elements. The DOM tree also contains text nodes (such as whitespace, comments, etc). To access these, you'd use the <code>childNodes</code> elements. You can access different <code>childNodes</code> in the same way (i.e. <code>firstChild</code>, <code>nextSibling</code>, etc).
+      </p>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Adding and Removing Nodes</h3>
+<p>To add a node to the DOM, you need to first create the element, and then append it to the right place in the DOM. You can also remove nodes that you have a reference to.</p>
+<div class="snippet">
+  <div class="col-md-8">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">var elem = document.createElement('div');
+document.body.appendChild(elem);
+document.body.removeChild(elem);</pre>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row annotation">
+      <p>This piece of code creates a div, appends it to the end of the body, and then removes it right away.</p>
+    </div>
   </div>
 </div>
 
 
-
-
-
-
-
-
-
+<div class="clearfix"></div>
 
 </div>
