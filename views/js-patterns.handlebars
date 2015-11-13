@@ -3,12 +3,93 @@
 <p>Speedy overview of some patterns in javascript</p>
 
 <h4>Constructors</h4>
+<p>Create a new function that returns a new object bound to <em>this</em>.</p>
 
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint linenums">
+function Meal(time, food) {
+  this.time = time;
+  this.food = food;
+
+  this.delayedBy = function(delay) {
+    this.time += delay;
+  }
+
+  this.toString = function() {
+    return this.food + " will be served at " + this.time;
+  }
+}
+
+var dinner = new Meal(6, "chicken");
+
+console.log(dinner.toString()); // chicken will be served at 6
+dinner.delayedBy(3);
+console.log(dinner.toString()); // chicken will be served at 9</pre>
+    </div>
+  </div>
+</div>
 
 <h4>Prototypes</h4>
 
+<p>All objects created from the constructor will have access to their prototype functions.</p>
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint linenums">
+function Meal(time, food) {
+  this.time = time;
+  this.food = food;
+}
+Meal.prototype.delayedBy = function(delay) {
+  this.time += delay;
+}
+
+Meal.prototype.toString = function() {
+  return this.food + " will be served at " + this.time;
+}
+
+var dinner = new Meal(6, "chicken");
+
+console.log(dinner.toString()); // chicken will be served at 6
+dinner.delayedBy(3);
+console.log(dinner.toString()); // chicken will be served at 9</pre>
+    </div>
+  </div>
+</div>
+
 <h4>Closures</h4>
 
+Take a look at this <a href="http://stackoverflow.com/a/111111">StackOverflow answer</a>. 
+
+<div class="snippet">
+  <div class="col-md-8">
+    <div class="row">
+      <pre class="prettyprint linenums">
+function printName(name) {
+  var text = 'Hello ' + name;
+  var say = function() { alert(text); };
+  return say;
+}
+
+var say2 = printName("World");
+say2();
+</pre>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="annotation">
+      The local variable gets captured in the function. Now <code>say</code> has both the function and <em>text</em>.
+    </div>
+    <div class="annotation">
+      Now when <code>say2</code> is called, it will alert "Hello World".
+    </div>
+  </div>
+
+</div>
 
 <h3>Resources</h3>
 

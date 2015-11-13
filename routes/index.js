@@ -15,8 +15,8 @@ router.get('/css', function(req, res, next) {
   res.render('css', { title: 'CS247: CSS Cliffnotes' });
 });
 
-router.get('/js', function(req, res, next) {
-  res.render('js', { title: 'CS247: Javascript Jam' });
+router.get('/jq-animation', function(req, res, next) {
+  res.render('jq-animation', { title: 'CS247: jQuery Animations' });
 });
 
 router.get('/grids', function(req, res, next) {
@@ -28,11 +28,15 @@ router.get('/jsbasics', function(req, res, next) {
 });
 
 router.get('/jspatterns', function(req, res, next) {
-  res.render('js-patterns', { title: 'CS247: Javacript Basics' });
+  res.render('js-patterns', { title: 'CS247: Javacript Patterns' });
 });
 
 router.get('/jsdom', function(req, res, next) {
   res.render('js-dom', { title: 'CS247: DOM Traversal' });
+});
+
+router.get('/jq', function(req, res, next) {
+  res.render('jq', { title: 'CS247: jQuery' });
 });
 
 
