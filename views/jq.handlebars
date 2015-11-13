@@ -1,0 +1,78 @@
+<div class="row">
+<h1>jQuery</h1>
+<p><code>$</code> rules everything around me.</p>
+
+<h3>Why jQuery?</h3>
+
+<p>We went over jQuery in the <a href="/jq-animation">jQuery animation section</a>. <strong>Be sure to go over that section first!</strong></p>
+
+<p>Is jQuery really so great? <strong>YES</strong>. It makes a lot of things easier and more natural to develop. Below are just some of the things it makes easier:</p>
+
+<ol>
+	<li>Finding html elements</li>
+	<li>Moving around a page's code</li>
+	<li>Editing elements</li>
+	<li>Making animations</li>
+	<li>Making dynamic web sites</li>
+</ol>
+
+<p>Here's a compare and contrast on certain functions in javascript versus using jQuery.</p>
+
+
+<div class="snippet">
+  <div class="col-md-12">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">
+/*
+ * Making an element invisible
+ */
+
+//javascript:
+document.getElementById('someElement').style.display = "none";
+//jquery:
+$('#someElement').hide();
+
+
+/*
+ * Adding new headings to the DOM
+ */
+//javascript:
+var newHeading = document.createElement("h1");
+newHeading.innerHTML = "Javascript";
+document.getElementsByTagName('body')[0].appendChild(newHeading);
+
+//jQuery
+$('body').append( $('&lt;h1/&gt;').html("jQuery") );
+
+
+/*
+ * Add a CSS class to every div that is the child of a link
+ */
+ //javascript
+var links = document.getElementsByTagName('a');
+var link;
+for (i=0;i &lt; links.length;i++) {
+   link = links[i];
+   for (j=0;j &lt; link.children.length;j++) {
+       if (link.children[j].tagName === "DIV") {
+           var currentClassName = link.children[j].className;
+           var newClassName;
+           if (currentClass === "") {
+               newClassName = "newClass";
+           } else {
+               newClassName = currentClassName + " newClass";
+           }
+           link.children[j].className = newClassName;
+       }
+   }
+}
+
+//jquery
+$('a &gt; div').addClass("newClass");</pre>
+	</div>
+	</div>
+</div>
+
+
+
+</div>
