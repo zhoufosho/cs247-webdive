@@ -22,13 +22,16 @@
   </div>
   <div class="col-md-6">
     <div class="row annotation">
-      	<p>This is the DOM tree for the code on the left.</p>
+      	<p>This is the DOM tree of element nodes for the code on the left.</p>
       	<img src="images/domtree.png" style="height:100px"></img>
     </div>
   </div>
 </div>
 
 <div class="clearfix"></div>
+
+<p>The DOM tree also contains text nodes, not illustrated above. The text nodes include any whitespace or text between tags (including newlines!). Be careful of this!</p>
+
 
 <h3>DOM Objects</h3>
 <p>Each of the nodes in the DOM tree is an object that you can access with JavaScript. Using Javascript, you can edit the contents of a node, change its properties, or even create and remove nodes dynamically. </p>
@@ -106,12 +109,96 @@ for(var i = 0; i < children.length; i++) {
 var firstChild = elem.firstChild; // same as childNodes[0]
 var lastChild = elem.lastChild;
 var previousSib = elem.previousSibling;
-var nextSib = elem.nextSibling;</pre>
+var nextSib = elem.nextSibling;
+
+// there are also element-only versions of these!
+var firstElemChild = elem.firstElementChild;</pre>
     </div>
   </div>
 </div>
 
-</p>
+
+<div class="clearfix"></div>
+
+<h3>Adding and Removing Nodes</h3>
+<p>To add a node to the DOM, you need to first create the element, and then append it to the right place in the DOM. You can also remove nodes that you have a reference to.</p>
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">var elem = document.createElement('div');
+document.body.appendChild(elem);
+document.body.removeChild(elem);</pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row annotation">
+      <p>This piece of code creates a div, appends it to the end of the body, and then removes it right away.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+
+
+<h3>Accessing Content and Attributes</h3>
+To access the HTML inside of a node, you can use the <code>innerHTML</code> property. You can also use edit this property to make changes to the HTML.</p>
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">&lt;body&gt;
+      &lt;div&gt;&lt;div&gt;
+  &lt;script&gt;
+    var div = document.body.firstElementChild;
+    div.innerHTML = "banana";
+  &lt;/script&gt;
+&lt;/body&gt;</pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+  	<div class="row annotation">
+  		<p> This will set the text between the div tags to "banana."</p>
+  	</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<p>You can also get and set attributes using JavaScript.
+<div class="snippet">
+  <div class="col-md-6">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">var id = document.body.getAttribute("id");
+document.body.setAttribute("className", "big");</pre>
+    </div>
+  </div>
+  <div class="col-md-6">
+  	<div class="row annotation">
+  		<p>There are other ways to edit properties that you can easily look up if you need them.</p>
+  	</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h3>Searching for Elements</h3>
+<p>Instead of traversing through the whole tree, you can also search for elements by their ID, class, or other attributes.</p>
+<div class="snippet">
+  <div class="col-md-8">
+    <div class="row">
+      <pre class="prettyprint linenums no-esp">var info = document.getElementById('info');
+var paragraphArray = document.getElementsByTagName('p');
+var infoParagraphArray = info.getElementsByTagName('p');</pre>
+    </div>
+  </div>
+  <div class="col-md-4">
+  	<div class="row annotation">
+  		<p>Can you guess what these lines of code do? How do you think line 2 and line 3 are different?</p>
+  	</div>
+  </div>
+</div>
+
 
 
 
