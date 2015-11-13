@@ -21,6 +21,10 @@ h1 {
 	font-family: 'Francois One', sans-serif;
 }
 
+big {
+	font-family: 'Francois One', sans-serif;	
+}
+
 a:hover {
 	background-color: #00A0FF;
 	color: white;
@@ -127,6 +131,10 @@ body.home {
 	border: 1px solid #696969;
 	border-radius: 4px;
     transition: all 0.05s ease-in;
+}
+
+.annotation p {
+	margin: 0px;
 }
 
 .annotation:hover,
